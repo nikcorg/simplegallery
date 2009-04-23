@@ -28,12 +28,13 @@
 	$thumbSize = 100;
 
 	// Other settings
-	$useNiceUrls    = true;
-	$backToIndexStr = "Return to gallery index";
-	$siteWebRoot    = ''; // omit the trailing slash. for root folder, leave empty.
-	$baseDir        = str_replace("\\", "/", dirname(__FILE__));
-	$galleriesDir   = "/assets/galleries/";
-	$genImgDir      = "/assets/img/generated/";
+	$useNiceUrls     = true;
+	$skipLandingPage = true;
+	$backToIndexStr  = "Return to gallery index";
+	$siteWebRoot     = ''; // omit the trailing slash. for root folder, leave empty.
+	$baseDir         = str_replace("\\", "/", dirname(__FILE__));
+	$galleriesDir    = "/assets/galleries/";
+	$genImgDir       = "/assets/img/generated/";
 	
 	require_once 'lib/core.php';
 	require_once 'lib/gallery.php';
