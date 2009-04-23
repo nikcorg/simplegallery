@@ -67,15 +67,19 @@ class SimpleGallery {
 	public function renderGallery() {
 		global $siteWebRoot, $useNiceUrls, $galleryTitle, $galleryDescription, $galleryKeywords, $galleryDate, $galleryRowTemplate, $galleryIndexLink;
 		
-		$galleryId        = getRequestVar('galleryID');
 		$galleryIndexLink = $useNiceUrls
 		                        ? sprintf("%s/index/", $siteWebRoot)
         		                : sprintf("%s?index=", $siteWebRoot);
+		$galleryId        = getRequestVar('galleryID');
+		
+		if (is_null($galleryId) || empty($galleryId)) {
+		    forwardTo($galleryIndexLink);
+		}
 		
 		ob_start();
 				
-		foreach($this->gallerydata as $galleryId) {
-			if ($gallery->safename == $gal) {
+		foreach($this->gallerydata as $gallery) {
+			if ($gallery->safename == $galleryId) {
 				$galleryTitle       = $gallery->title;
 				$galleryDescription = $gallery->description;
 				$galleryKeywords    = $gallery->keywords;
