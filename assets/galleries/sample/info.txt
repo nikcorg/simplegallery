@@ -1,4 +1,5 @@
-TITLE	Vappu Pimiä
-THUMB   vappu.jpg
-DESC    VOIMATORI -customer magazine
-DATE	February 2009
+TITLE	Sample gallery
+THUMB   sample03.jpg
+DESC    Description of this sample gallery
+DATE	March 04
+KEYW    Simplegallery, Sample
