@@ -15,6 +15,9 @@ if (isIndexRequest()) {
 	SimpleGallery::getInstance()->renderGallery();
 	require_once 'templates/gallery.template.php';
 } else {
+    if ($skipLandingPage) {
+        forwardTo($siteWebRoot . '/index/');
+    }
     require_once 'templates/landing.template.php';
 }
 ?>

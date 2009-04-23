@@ -1,14 +1,19 @@
 <?php
-function _e($str) {
-    if (! isUTF8($str)) {
-        return utf8_encode($str);
-    }
-    
-    return $str;
-}
-
 function isUTF8($str) {
 	return (utf8_encode(utf8_decode($str)) == $str);
+}
+
+function isGalleryRequest() {
+	return ! is_null(getRequestVar('galleryID'));
+}
+
+function isIndexRequest() {
+    return ! is_null(getRequestVar('index'));
+}
+
+function forwardTo($url) {
+    header("Location: " . $url, true, 301);
+    exit();
 }
 
 function getRequestVar($var) {
@@ -27,14 +32,6 @@ function endsWith($needle, $haystack) {
 	return ($needle == $extract);
 }
 
-function getFolderNameFromPath($path) {
-	if (endsWith("/", $path)) {
-		$path = substr($path, 0, -1);
-	}
-	
-	return substr($path, strrpos($path, "/") + 1);
-}
-
 function getUrlSafeString($str) {
 	$pat = array('/[\s]/', '/[^A-Za-z0-9-]/');
 	$rep = array('-', '');
@@ -42,12 +39,20 @@ function getUrlSafeString($str) {
 	return preg_replace($pat, $rep, strtolower(trim($str)));
 }
 
-function isGalleryRequest() {
-	return ! is_null(getRequestVar('galleryID'));
+function _e($str) {
+    if (! isUTF8($str)) {
+        return utf8_encode($str);
+    }
+    
+    return $str;
 }
 
-function isIndexRequest() {
-    return ! is_null(getRequestVar('index'));
+function getFolderNameFromPath($path) {
+	if (endsWith("/", $path)) {
+		$path = substr($path, 0, -1);
+	}
+	
+	return substr($path, strrpos($path, "/") + 1);
 }
 
 function generateThumbnail($img, $path, $force = true) {
