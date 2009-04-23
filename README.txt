@@ -50,6 +50,10 @@ Now for the techical stuff, ask your techie friend if this is too hard
 
 Now you should be up and running. If not, you're doing it wrong!
 
+Jokes aside, if you're still having trouble, AFTER asking your techie friend 
+AND your service provider AND trying to find help using Google, then you may 
+contact me at nikc@iki.fi as long as you're polite.
+
 
 USING
 --------------------------------------
@@ -92,10 +96,12 @@ CUSTOMIZING
   - gallery.template.php
     - this is the gallery view
 
-If you're still having trouble, AFTER asking your techie friend AND your service
-provider AND trying to find help using Google, you can contact me at nikc@iki.fi
-as long as you're polite.
+NOTE! Some of the javascript relies on a certain structure, if you change
+the markup, it might be worth taking a look in 
 
+	assets/js/global.js
+
+There are helpful(?) comments in there.
 
 FAQ
 --------------------------------------
