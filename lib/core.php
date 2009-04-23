@@ -108,7 +108,7 @@ class SimpleGallery {
 			if (! is_null($gal)) {
     			$key = $gal->mtime;
     			
-    			while (array_key_exists($key, $this->gallerydata)) {
+    			while (array_key_exists("k" . $key, $this->gallerydata)) {
     				$key++;
     			}
     			
