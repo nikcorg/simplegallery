@@ -89,6 +89,7 @@ div#masthead p * {
 
 div#masthead a {
 	color: #000;
+	opacity: 1;
 	text-decoration: none;
 }
 
@@ -109,7 +110,7 @@ div#landing a:visited {
 /** Gallery index **/
 
 div#overview {
-    max-width: 800px;
+    /* max-width: 800px; */
 }
 
 div#overview a {
