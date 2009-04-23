@@ -66,6 +66,8 @@ class Gallery {
 		foreach ($contents as $row) {
 			list($ident, $data) = preg_split("/[\s]/", trim($row), 2);
 			
+			$data = trim($data);
+			
 			switch (strtolower($ident)) {
 				case 'title':
 					$this->title = htmlspecialchars(_e($data));
@@ -99,7 +101,7 @@ class Gallery {
 			
 			if (is_null($this->thumbnail)) {
 				$this->thumbnail = basename($file);
-			} else if (! file_exists($this->path . $this->thumbnail)) {
+			} else if (! file_exists($this->path . '/' . $this->thumbnail)) {
 			    $this->thumbnail = basename($file);
 			}
 			
