@@ -3,6 +3,16 @@ class Gallery {
 	public  static $latestUpdate = 0;
 	private static $galleries    = array();
 	
+	public static function createGallery($path) {
+	    if (self::isFolderReadable($path) && self::isInfoFileReadable($path)) {
+	        return new Gallery($path);
+	    }
+	    
+	    var_dump("Could not create gallery for path " . $path);
+	    
+	    return null;
+	}
+	
 	private static function isUnique($safename) {
 		foreach ($galleries as $gallery) {
 			if ($gallery->safename == $safename) {

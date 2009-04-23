@@ -56,6 +56,8 @@ class SimpleGallery {
 				$row = str_replace('ALTTXT', '', $row);
 				
 				print($row);
+			} else {
+			    printf("<!-- %s: %s (%s) -->", "Could not get thumbnail for gallery", $gallery->title, $gallery->path);
 			}
 		}
 		
@@ -101,14 +103,17 @@ class SimpleGallery {
 		$galleries = glob($baseDir . $galleriesDir . '*', GLOB_ONLYDIR);
 		
 		foreach ($galleries as $gallery) {
-			$gal = $this->getGallery($gallery);			
-			$key = $gal->mtime;
+			$gal = $this->getGallery($gallery);
 			
-			while (array_key_exists($key, $this->gallerydata)) {
-				$key++;
+			if (! is_null($gal)) {
+    			$key = $gal->mtime;
+    			
+    			while (array_key_exists($key, $this->gallerydata)) {
+    				$key++;
+    			}
+    			
+    			$this->gallerydata["k" . $key] = $gal;
 			}
-			
-			$this->gallerydata["k" . $key] = $gal;
 		}
 	}
 	
@@ -119,7 +124,7 @@ class SimpleGallery {
 	private function getGallery($path) {
 		$path = str_replace("\\", "/", $path); // windows hack
 		
-		return new Gallery($path);
+		return Gallery::createGallery($path);
 	}
 }
 ?>
