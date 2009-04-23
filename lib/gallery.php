@@ -43,6 +43,7 @@ class Gallery {
 	var $foldername;
 	var $files;
 	var $thumbnail;
+	var $hidden;
 	
 	public function __construct($path = null) {
 		if (! is_null($path)) {
@@ -97,6 +98,10 @@ class Gallery {
 				
 				case 'thumb':
 				    $this->thumbnail = $data;
+				break;
+				
+				case 'hide':
+					$this->hidden = true;
 				break;
 			}
 		}

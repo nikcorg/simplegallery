@@ -75,6 +75,11 @@ USING
   - THUMB
     - if you want the thumbnail to be generated from another image than the
       first image found in the folder, insert the filename here
+  - HIDE
+    - stop this gallery from showing up in the thumbnail view, but offers
+      no access protection what so ever. Exists solely for the purpose of
+      having a public access gallery, to which there isn't a direct link to,
+      as in "security by obscurity"
 
 - There is a sample info.txt provided in the sample gallery
 - The gallery data is read only once per session, which might lead to you
