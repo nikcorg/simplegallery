@@ -67,14 +67,14 @@ class SimpleGallery {
 	public function renderGallery() {
 		global $siteWebRoot, $useNiceUrls, $galleryTitle, $galleryDescription, $galleryKeywords, $galleryDate, $galleryRowTemplate, $galleryIndexLink;
 		
-		$gal              = getRequestVar('galleryID');
+		$galleryId        = getRequestVar('galleryID');
 		$galleryIndexLink = $useNiceUrls
 		                        ? sprintf("%s/index/", $siteWebRoot)
         		                : sprintf("%s?index=", $siteWebRoot);
 		
 		ob_start();
 				
-		foreach($this->gallerydata as $gallery) {
+		foreach($this->gallerydata as $galleryId) {
 			if ($gallery->safename == $gal) {
 				$galleryTitle       = $gallery->title;
 				$galleryDescription = $gallery->description;
