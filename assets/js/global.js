@@ -10,12 +10,12 @@ $(document).ready(function() {
      * You can then either try to modify this, or disable it
      */
      
-    $('.galleryimage img').each(function (ind, el) {
+    $('div#gallery img').each(function (ind, el) {
         $(this).css('cursor', 'pointer');
         $(this).click(function() {
-            var allImg = $('.galleryimage img');
+            var allImg = $('div#gallery img');
             var myTop  = $(this).offset().top;
-            var marStr = $($('.galleryimage')[0]).css('margin-bottom');
+            var marStr = $($('div#gallery img')[0]).css('margin-bottom');
             var marVal = Number(marStr.substr(0, marStr.length - 2));
             var imgMar;
             
