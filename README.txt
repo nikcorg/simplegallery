@@ -41,7 +41,14 @@ Now for the techical stuff, ask your techie friend if this is too hard
   process. If you're not sure, make it world writable, which is techie for 
   check all the 'write' boxes in your ftp programs' properties dialog.
 
-Now you should be up and running.
+- If you don't want to use a landing page (or splash page) set
+
+	$skipLandingPage = false;
+
+  in config.php
+
+
+Now you should be up and running. If not, you're doing it wrong!
 
 
 USING
