@@ -46,7 +46,7 @@ p {
 /* Link styles */
 
 a:link {
-    color: #000;
+    color: #fff;
 }
 
 a:visited {
@@ -101,10 +101,6 @@ div#landing {
 
 div#landing a:visited {
     opacity: 1;
-}
-
-div#landing h1 {
-    display: none;
 }
 
 /** Gallery index **/
