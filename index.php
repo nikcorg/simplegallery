@@ -16,7 +16,11 @@ if (isIndexRequest()) {
 	require_once 'templates/gallery.template.php';
 } else {
     if ($skipLandingPage) {
-        forwardTo($siteWebRoot . '/index/');
+        if ($useNiceUrls) {
+            forwardTo($siteWebRoot . '/index/');
+        } else {
+            forwardTo($siteWebRoot . '/?index=');
+        }
     }
     require_once 'templates/landing.template.php';
 }
