@@ -1,0 +1,160 @@
+/** clearfix **/
+
+.clearfix:after {
+    content: " ";
+    clear: both;
+    display: block;
+    font-size: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.clearfix { display: inline-block; }
+
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */
+
+/** General styles **/
+
+body {
+    background-color: black;
+    color: #fff;
+    font-family: Arial, Verdana;
+    font-size: 100%;
+    margin-bottom: 20px;
+    margin-left: 0;
+    margin-top: 0;    
+    margin-right: 0;    
+}
+
+
+h1 {
+    font-weight: normal;
+    font-size: 1em;
+}
+
+img {
+    display: inline;
+}
+
+p {
+    font-size: 1em;
+}
+
+/* Link styles */
+
+a:link {
+    color: #000;
+}
+
+a:visited {
+    opacity: 0.8;
+}
+
+a:hover {
+}
+
+a:active {
+}
+
+h1 a {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a img {
+    border: 0;
+}
+
+/** Layout **/
+
+div#masthead {
+	background-color: #fff;
+	color: #000;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+div#masthead h1,
+div#masthead p,
+div#masthead p * {
+    display: inline;
+    margin-right: 15px;
+}
+
+div#masthead a {
+	color: #000;
+	text-decoration: none;
+}
+
+div#masthead a:hover {
+	text-decoration: underline;
+}
+
+/** Landing page **/
+
+div#landing {
+    text-align: center;
+}
+
+div#landing a:visited {
+    opacity: 1;
+}
+
+div#landing h1 {
+    display: none;
+}
+
+/** Gallery index **/
+
+div#overview {
+    max-width: 800px;
+}
+
+div#overview a {
+	display: inline;
+    float: left;
+    margin-bottom: 20px;
+    margin-left: 20px;    
+    overflow: hidden;
+}
+
+div#overview a img {
+    background-color: #000;
+    padding: 5px;
+}
+
+div#overview a:hover img {
+    background-color: #fff;
+}
+
+/** Gallery **/
+
+div#gallery {
+	text-align: center;
+}
+
+div#gallery a {
+    color: #fff;
+}
+
+div#gallery p.date {
+    color: #aaa;
+    font-size: 0.8em;    
+}
+
+div#gallery p.description {
+    color: #aaa;
+    font-size: 0.8em;    
+}
+
+div#gallery div.galleryimage {
+	margin-bottom: 20px;
+}
+
+div.galleryimage img {
+    background-color: #fff;
+    padding: 8px;
+}

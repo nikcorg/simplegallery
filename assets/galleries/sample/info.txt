@@ -1,0 +1,4 @@
+TITLE	Vappu Pimiä
+THUMB   vappu.jpg
+DESC    VOIMATORI -customer magazine
+DATE	February 2009
