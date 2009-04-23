@@ -1,11 +1,12 @@
 <?php  
+require_once 'config.php';
+
 header("Content-type: text/html; charset=utf-8");
 
 // Shorten session length to 5 minutes, and set http only true
-session_set_cookie_params(300, $siteWebRoot . '/', $_SERVER['HTTP_HOST'], false, true);
+session_set_cookie_params(300, $siteWebRoot, $_SERVER['HTTP_HOST'], false, true);
+session_name('SimpleGallerySession');
 session_start();
-
-require_once 'config.php';
 
 if (isIndexRequest()) {
 	SimpleGallery::getInstance()->renderOverview();
