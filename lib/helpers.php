@@ -78,7 +78,7 @@ function generateThumbnail($img, $path, $force = true) {
 	        break;
 	        
 	        default:
-	            printf("<!-- %s: %s -->\n", "File format could not be recognized (tried: jpg, jpeg, gif or png): could not open source image", $imgfile);
+	            printf("<!-- %s: %s -->\n", "File format could not be recognized (tried: jpg, jpeg, gif or png)", $imgfile);
 	            return null;
 	        break;
 	    }
