@@ -55,15 +55,19 @@ function getFolderNameFromPath($path) {
 	return substr($path, strrpos($path, "/") + 1);
 }
 
+function getFileExtension($filename) {
+    return substr($filename, strrpos($filename, '.') + 1);
+}
+
 function generateThumbnail($img, $path, $force = true) {
 	global $baseDir, $genImgDir, $thumbSize;
 	
 	$imgfile   = $path . '/' . $img;
-	$thumbfile = $baseDir . $genImgDir . 'th_' . $img;
+	$thumbfile = $baseDir . $genImgDir . 'th_' . md5($path . $img) . '.' . getFileExtension($img);
 	
 	if (($force || ! file_exists($thumbfile)) && file_exists($imgfile) && is_readable($imgfile) && is_writable($baseDir . $genImgDir)) {
-	    $ext   = substr($imgfile, strrpos($imgfile, '.') + 1);
-	    switch ($ext) {
+	    
+	    switch (getFileExtension($img)) {
 	        case "jpg":
 	        case "jpeg":
 	            $image = @imagecreatefromjpeg($imgfile);
@@ -78,7 +82,7 @@ function generateThumbnail($img, $path, $force = true) {
 	        break;
 	        
 	        default:
-	            printf("<!-- %s: %s -->\n", "File format could not be recognized (tried: jpg, jpeg, gif or png)", $imgfile);
+	            printf("<!-- %s: %s -->\n", "File format could not be recognized (tried: jpg, jpeg, gif or png)", $img);
 	            return null;
 	        break;
 	    }
@@ -110,6 +114,6 @@ function generateThumbnail($img, $path, $force = true) {
 		return null;
 	}
 
-	return $genImgDir . 'th_' . basename($imgfile);
+	return $genImgDir . basename($thumbfile);
 }
 ?>

@@ -48,8 +48,8 @@ class SimpleGallery {
 			            ? sprintf('%s/gallery/%s', $siteWebRoot, $gallery->safename)
             			: sprintf('%s/?galleryID=%s', $siteWebRoot, $gallery->safename);
 			
-            // Skip non-public galleries in the thumbnail view
-            if (! is_null($gallery->hidden)) {
+            // Skip non-public and empty galleries in the thumbnail view
+            if (! is_null($gallery->hidden) || count($gallery->files) == 0) {
             	continue;
             }
             			
