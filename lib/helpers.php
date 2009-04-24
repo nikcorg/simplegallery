@@ -66,7 +66,6 @@ function generateThumbnail($img, $path, $force = true) {
 	$thumbfile = $baseDir . $genImgDir . 'th_' . md5($path . $img) . '.' . getFileExtension($img);
 	
 	if (($force || ! file_exists($thumbfile)) && file_exists($imgfile) && is_readable($imgfile) && is_writable($baseDir . $genImgDir)) {
-	    
 	    switch (getFileExtension($img)) {
 	        case "jpg":
 	        case "jpeg":

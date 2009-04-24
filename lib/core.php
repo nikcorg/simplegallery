@@ -48,11 +48,11 @@ class SimpleGallery {
 			            ? sprintf('%s/gallery/%s', $siteWebRoot, $gallery->safename)
             			: sprintf('%s/?galleryID=%s', $siteWebRoot, $gallery->safename);
 			
-            // Skip non-public and empty galleries in the thumbnail view
-            if (! is_null($gallery->hidden) || count($gallery->files) == 0) {
+            // Skip non-public, empty and titleless galleries in the thumbnail view
+            if (! is_null($gallery->hidden) || count($gallery->files) == 0 || is_null($gallery->title)) {
             	continue;
             }
-            			
+
             if (! is_null($thumb)) {
 				$row = $overviewRowTemplate;
 				$row = str_replace('GALLERYURL', $path, $row);
