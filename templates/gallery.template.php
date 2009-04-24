@@ -8,7 +8,13 @@
 	<?php endif; ?>
 	
 	<?php if (isset($galleryDescription) && ! empty($galleryDescription)): ?>
-		<p class="description"><?php echo $galleryDescription ?></p>
+	    <?php if (is_array($galleryDescription)): ?>
+		    <?php foreach ($galleryDescription as $descRow): ?>
+		        <p class="description"><?php echo $descRow ?></p>
+		    <?php endforeach; ?>
+		<?php else: ?>
+		    <p class="description"><?php echo $galleryDescription ?></p>
+		<?php endif; ?>
 	<?php endif; ?>
 	
 	<div id="images">

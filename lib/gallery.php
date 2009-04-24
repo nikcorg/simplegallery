@@ -85,7 +85,13 @@ class Gallery {
 				break;
 				
 				case 'desc':
-					$this->description = _e($data);
+				    if (is_null($this->description)) {
+					    $this->description = _e($data);
+					} else if (is_array($this->description)) {
+					    $this->description[] = _e($data);
+					} else {
+					    $this->description = array($this->description, _e($data));
+					}
 				break;
 				
 				case 'keyw':

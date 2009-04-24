@@ -68,6 +68,7 @@ USING
     - the gallery title
   - DESC
     - a description text
+    - you can have several rows of DESC entries in an info file
   - KEYW
     - keywords, not displayed anywhere, but some search engines like them
   - DATE
