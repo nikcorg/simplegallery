@@ -22,9 +22,9 @@
 	</div>
 	
 	<p>
-	    <?php if (! is_null($newerGalleryLink)): ?><a href="<?php echo $newerGalleryLink ?>">&laquo; Newer content</a> &middot; <?php endif; ?>
+	    <?php if (! is_null($newerGalleryLink)): ?><a href="<?php echo $newerGalleryLink ?>">&laquo; <?php echo $newerGalleryTitle ?></a> &middot; <?php endif; ?>
 	    <a href="<?php echo $galleryIndexLink ?>"><?php echo $backToIndexStr ?></a>	
-	    <?php if (! is_null($olderGalleryLink)): ?> &middot; <a href="<?php echo $olderGalleryLink ?>">Older content &raquo;</a><?php endif; ?>
+	    <?php if (! is_null($olderGalleryLink)): ?> &middot; <a href="<?php echo $olderGalleryLink ?>"><?php echo $olderGalleryTitle ?> &raquo;</a><?php endif; ?>
     </p>
 </div>
 

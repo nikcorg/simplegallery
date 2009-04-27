@@ -70,14 +70,16 @@ class SimpleGallery {
 	}
 	
 	public function renderGallery() {
-		global $siteWebRoot, $useNiceUrls, $galleryTitle, $galleryDescription, $galleryKeywords, $galleryDate, $galleryRowTemplate, $galleryIndexLink, $olderGalleryLink, $newerGalleryLink;
+		global $siteWebRoot, $useNiceUrls, $galleryTitle, $galleryDescription, $galleryKeywords, $galleryDate, $galleryRowTemplate, $galleryIndexLink, $olderGalleryLink, $olderGalleryTitle, $newerGalleryLink, $newerGalleryTitle;
 		
-		$prevGalleryLink  = null;
-		$nextGalleryLink  = null;
-		$galleryIndexLink = $useNiceUrls
+		$newerGalleryLink  = null;
+		$olderGalleryLink  = null;
+		$newerGalleryTitle = null;
+		$olderGalleryTitle = null;
+		$galleryIndexLink  = $useNiceUrls
 		                        ? sprintf("%s/index/", $siteWebRoot)
         		                : sprintf("%s?index=", $siteWebRoot);
-		$galleryId        = getRequestVar('galleryID');
+		$galleryId         = getRequestVar('galleryID');
 		
 		if (is_null($galleryId) || empty($galleryId)) {
 		    forwardTo($galleryIndexLink);
@@ -109,7 +111,8 @@ class SimpleGallery {
 				    $newerGallery = $this->gallerydata[$keys[$j]];
 				    
 				    if (is_null($newerGallery->hidden)) {
-    				    $newerGalleryLink = $useNiceUrls 
+				        $newerGalleryTitle = $newerGallery->title;
+    				    $newerGalleryLink  = $useNiceUrls 
     			            ? sprintf('%s/gallery/%s', $siteWebRoot, $newerGallery->safename)
                 			: sprintf('%s/?galleryID=%s', $siteWebRoot, $newerGallery->safename);
                 			
@@ -121,7 +124,8 @@ class SimpleGallery {
 				    $olderGallery     = $this->gallerydata[$keys[$j]];
 				    
 				    if (is_null($olderGallery->hidden)) {
-    				    $olderGalleryLink = $useNiceUrls 
+				        $olderGalleryTitle = $olderGallery->title;
+    				    $olderGalleryLink  = $useNiceUrls 
     			            ? sprintf('%s/gallery/%s', $siteWebRoot, $olderGallery->safename)
                 			: sprintf('%s/?galleryID=%s', $siteWebRoot, $olderGallery->safename);
                 			
