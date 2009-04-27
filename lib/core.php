@@ -70,8 +70,10 @@ class SimpleGallery {
 	}
 	
 	public function renderGallery() {
-		global $siteWebRoot, $useNiceUrls, $galleryTitle, $galleryDescription, $galleryKeywords, $galleryDate, $galleryRowTemplate, $galleryIndexLink;
+		global $siteWebRoot, $useNiceUrls, $galleryTitle, $galleryDescription, $galleryKeywords, $galleryDate, $galleryRowTemplate, $galleryIndexLink, $olderGalleryLink, $newerGalleryLink;
 		
+		$prevGalleryLink  = null;
+		$nextGalleryLink  = null;
 		$galleryIndexLink = $useNiceUrls
 		                        ? sprintf("%s/index/", $siteWebRoot)
         		                : sprintf("%s?index=", $siteWebRoot);
@@ -82,8 +84,12 @@ class SimpleGallery {
 		}
 		
 		ob_start();
-				
-		foreach($this->gallerydata as $gallery) {
+		
+		$keys = array_keys($this->gallerydata);
+		
+		for ($i = 0; $i < count($keys); $i++) {
+		    $gallery = $this->gallerydata[$keys[$i]];
+		    
 			if ($gallery->safename == $galleryId) {
 				$galleryTitle       = $gallery->title;
 				$galleryDescription = $gallery->description;
@@ -97,6 +103,30 @@ class SimpleGallery {
 					$row = str_replace('ALTTXT', '', $row);
 					
 					print($row);
+				}
+				
+				for ($j = $i - 1; $j >= 0; $j--) {
+				    $newerGallery = $this->gallerydata[$keys[$j]];
+				    
+				    if (is_null($newerGallery->hidden)) {
+    				    $newerGalleryLink = $useNiceUrls 
+    			            ? sprintf('%s/gallery/%s', $siteWebRoot, $newerGallery->safename)
+                			: sprintf('%s/?galleryID=%s', $siteWebRoot, $newerGallery->safename);
+                			
+                		break;
+            		}
+				}
+				
+				for ($j = $i + 1; $j < count($keys) - 1; $j++) {
+				    $olderGallery     = $this->gallerydata[$keys[$j]];
+				    
+				    if (is_null($olderGallery->hidden)) {
+    				    $olderGalleryLink = $useNiceUrls 
+    			            ? sprintf('%s/gallery/%s', $siteWebRoot, $olderGallery->safename)
+                			: sprintf('%s/?galleryID=%s', $siteWebRoot, $olderGallery->safename);
+                			
+                		break;
+            		}
 				}
 				
 				break;

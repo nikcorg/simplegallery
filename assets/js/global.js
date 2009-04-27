@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $("img").lazyload({         
-         placeholder : "/assets/img/grey.gif",
+         placeholder : siteWebRoot + "/assets/img/grey.gif",
          effect: "fadeIn"
     });
     
