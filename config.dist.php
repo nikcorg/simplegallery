@@ -20,16 +20,21 @@
 				);
 	*/
 	
-	// Row templates, leave untouched if unsure about what you're doing
-	$overviewRowTemplate = "<a href=\"GALLERYURL\" title=\"GALLERYTITLE\"><img src=\"IMGSRC\" alt=\"ALTTXT\"></a>\n";
-	$galleryRowTemplate  = "<div class=\"galleryimage\"><img src=\"IMGSRC\" alt=\"ALTTXT\"></div>\n";
+	// Output templates, leave untouched if unsure about what you're doing
+	// the title-attribute in the thumbnail view
+	$overviewTitleTemplate = "GALLERYTITLE, GALLERYNUMIMAGES images, updated on GALLERYUPDATED"; 	
+	// one gallery in the thumbnail view
+	$overviewRowTemplate   = "<a href=\"GALLERYURL\" title=\"GALLERYTITLE\"><img src=\"IMGSRC\" alt=\"ALTTXT\"></a>\n"; //
+	// one image in the gallery view
+	$galleryRowTemplate    = "<div class=\"galleryimage\"><img src=\"IMGSRC\" alt=\"ALTTXT\"></div>\n";
 
-	// Thumbnail settings 
+	// Thumbnail side length 
 	$thumbSize = 100;
 
 	// Other settings
 	$useNiceUrls     = true;
 	$skipLandingPage = true;
+	$dateMask        = 'd.m.Y'; // see http://php.net/date
 	$backToIndexStr  = "Return to gallery index";
 	$siteWebRoot     = ''; // omit the trailing slash. for root folder, leave empty.
 	$baseDir         = str_replace("\\", "/", dirname(__FILE__));

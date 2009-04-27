@@ -36,7 +36,7 @@ class SimpleGallery {
 	}
 	
 	public function renderOverview() {
-		global $siteWebRoot, $siteTitle, $baseDir, $overviewRowTemplate, $useNiceUrls, $latestUpdate;
+		global $siteWebRoot, $siteTitle, $baseDir, $dateMask, $overviewTitleTemplate, $overviewRowTemplate, $useNiceUrls, $latestUpdate;
 		
 		$latestUpdate = $this->latestUpdate;
 		
@@ -54,10 +54,15 @@ class SimpleGallery {
             }
 
             if (! is_null($thumb)) {
+                $compiledTitle = $overviewTitleTemplate;
+                $compiledTitle = str_replace('GALLERYTITLE', $gallery->title, $compiledTitle);
+                $compiledTitle = str_replace('GALLERYUPDATED', date($dateMask, $gallery->mtime), $compiledTitle);
+                $compiledTitle = str_replace('GALLERYNUMIMAGES', count($gallery->files), $compiledTitle);
+                
 				$row = $overviewRowTemplate;
 				$row = str_replace('GALLERYURL', $path, $row);
 				$row = str_replace('IMGSRC', sprintf("%s%s", $siteWebRoot, $thumb), $row);
-				$row = str_replace('GALLERYTITLE', $gallery->title, $row);
+				$row = str_replace('GALLERYTITLE', $compiledTitle, $row);
 				$row = str_replace('ALTTXT', '', $row);
 				
 				print($row);
