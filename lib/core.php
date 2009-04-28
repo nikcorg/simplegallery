@@ -82,6 +82,8 @@ class SimpleGallery {
                         $content .= "<p>" . _e($gallery->description) . "</p>";
                     }
                 }
+                
+                $content .= "<p>" . count($gallery->files) . " images.</p>";
 				
 				printf($item, 
                         $path,

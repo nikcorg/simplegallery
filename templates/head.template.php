@@ -24,7 +24,8 @@
     <?php endif; ?>
     
     <title><?php if (isset($galleryTitle) && ! empty($galleryTitle)): ?><?php echo $galleryTitle ?> | <?php endif; ?><?php echo is_array($siteTitle) ? $siteTitle[$siteDefaultLang] : $siteTitle ?></title>
-    
+        
+    <link rel="alternate" type="application/rss+xml" href="<?php $siteURL ?><?php echo $useNiceUrls ? "rss/" : "?rss=1" ?>">
     <link rel="stylesheet" type="text/css" href="<?php echo $siteWebRoot ?>/assets/css/style.css">
     <script type="text/javascript">
 	var siteWebRoot = '<?php echo $siteWebRoot ?>';
