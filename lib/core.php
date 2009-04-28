@@ -35,6 +35,72 @@ class SimpleGallery {
 		return $this->output;
 	}
 	
+	public function renderRss() {
+	    global $siteWebRoot, $siteURL, $siteTitle, $baseDir, $dateMask, $overviewTitleTemplate, $overviewRowTemplate, $useNiceUrls, $latestUpdate;
+	    
+	    $item = 
+    		"<item>
+    			<guid isPermaLink=\"true\">%s</guid>
+    			<pubDate>%s</pubDate>
+    			<title>%s</title>
+    			<link>%s</link>
+    			<description>%s</description>
+    			<content:encoded>
+    				<![CDATA[%s]]>
+    			</content:encoded>    			
+    		</item>";
+	    
+    	ob_start();
+    		
+	    foreach ($this->gallerydata as $gallery) {
+			$thumb = generateThumbnail($gallery->thumbnail, $gallery->path);
+			$path  = $useNiceUrls 
+			            ? sprintf('%sgallery/%s', $siteURL, $gallery->safename)
+            			: sprintf('%s?galleryID=%s', $siteURL, $gallery->safename);
+			
+            // Skip non-public, empty and titleless galleries in the thumbnail view
+            if (! is_null($gallery->hidden) || count($gallery->files) == 0 || is_null($gallery->title)) {
+            	continue;
+            }
+
+            if (! is_null($thumb)) {
+				$row = $overviewRowTemplate;
+				$row = str_replace('GALLERYURL', $path, $row);
+				$row = str_replace('IMGSRC', sprintf("%s%s", $siteURL, substr($thumb, 1)), $row);
+				$row = str_replace('GALLERYTITLE', $compiledTitle, $row);
+				$row = str_replace('ALTTXT', '', $row);
+				
+				$content  = "<h1>" . _e($gallery->title) . "</h1>";
+                $content .= "<p>" . _e($row) . "</p>";
+                
+                if (! is_null($gallery->description)) {
+                    if (is_array($gallery->description)) {
+                        foreach ($gallery->description as $descrow) {
+                            $content .= "<p>" . _e($descrow) . "</p>";
+                        }
+                    } else {
+                        $content .= "<p>" . _e($gallery->description) . "</p>";
+                    }
+                }
+				
+				printf($item, 
+                        $path,
+                        date('r', $gallery->mtime),
+                        _e($gallery->title),
+                        $path,
+                        count($gallery->files) . " images",
+                        $content
+                    );
+			
+				//print($row);
+			} else {
+			    //printf("<!-- %s: %s (%s) -->", "Could not get thumbnail for gallery", $gallery->title, $gallery->path);
+			}
+		}
+		
+		$this->output = ob_get_clean();
+	}
+	
 	public function renderOverview() {
 		global $siteWebRoot, $siteTitle, $baseDir, $dateMask, $overviewTitleTemplate, $overviewRowTemplate, $useNiceUrls, $latestUpdate;
 		

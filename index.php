@@ -8,7 +8,11 @@ session_set_cookie_params(300, $siteWebRoot . '/', $_SERVER['HTTP_HOST'], false,
 session_name('SimpleGallerySession');
 session_start();
 
-if (isIndexRequest()) {
+if (isRssRequest()) {
+    SimpleGallery::getInstance()->renderRss();
+    require_once 'templates/rss.template.php';
+}
+else if (isIndexRequest()) {
 	SimpleGallery::getInstance()->renderOverview();
 	require_once 'templates/index.template.php';
 } else if (isGalleryRequest()) {

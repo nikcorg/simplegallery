@@ -3,6 +3,10 @@ function isUTF8($str) {
 	return (utf8_encode(utf8_decode($str)) == $str);
 }
 
+function isRssRequest() {
+    return ! is_null(getRequestVar('rss'));
+}
+
 function isGalleryRequest() {
 	return ! is_null(getRequestVar('galleryID'));
 }
