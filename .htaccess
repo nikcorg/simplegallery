@@ -2,7 +2,7 @@ RewriteEngine On
 RewriteBase /
 
 RewriteCond	%{REQUEST_URI}		rss
-RewriteRule	(.*)			index.php?feed=1 [L]
+RewriteRule	(.*)			index.php?rss=1 [L]
 
 RewriteCond 	%{REQUEST_URI} 		gallery
 RewriteRule 	gallery/([^/]*)		index.php?galleryID=$1 [QSA,L]
