@@ -24,7 +24,7 @@
 	// the title-attribute in the thumbnail view
 	$overviewTitleTemplate = "GALLERYTITLE, GALLERYNUMIMAGES images, updated on GALLERYUPDATED"; 	
 	// one gallery in the thumbnail view
-	$overviewRowTemplate   = "<a href=\"GALLERYURL\" title=\"GALLERYTITLE\"><img src=\"IMGSRC\" alt=\"ALTTXT\"></a>\n"; //
+	$overviewRowTemplate   = "<a href=\"GALLERYURL\" title=\"GALLERYTITLE\"><img id=\"IMGID\" src=\"IMGSRC\" alt=\"ALTTXT\"></a>\n"; //
 	// one image in the gallery view
 	$galleryRowTemplate    = "<div class=\"galleryimage\"><img src=\"IMGSRC\" alt=\"ALTTXT\"></div>\n";
 
