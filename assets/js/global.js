@@ -56,27 +56,43 @@ $(document).ready(function() {
         for (var i = 0; i < allImg.length - 1; i++) {
             var node = allImg[i];
             
-            $(node).click(function() {
-                var nodeY = $(this).offset().top;
-                var nextY = 0;
-                
+            $(node).click(function(e) {
+                var nodeY  = $(this).offset().top;
+                var nextY  = 0;
+                var anchor = "";
+
+                // Find next Y-coordinate
                 for (var j = 0; j < allImg.length; j++) {
                     if ($(allImg[j]).offset().top > nodeY) {
-                        nextY = $(allImg[j]).offset().top;
+                        nextY  = $(allImg[j]).offset().top;
+                        anchor = $(allImg[j]).parents('a').attr('href');
                         break;
                     }
                 }
                 
+                // Scroll window
                 if (nextY > nodeY) {
                     $('html,body').animate({scrollTop: nextY - imgMar}, 200);
                 }
+                
+                // Update url
+                document.location.hash = anchor;
+                e.preventDefault();
+                return false;
             });
         }
         
         // Return to top from the last img
-        $(allImg[allImg.length - 1]).click(function() {
+        $(allImg[allImg.length - 1]).click(function(e) {
             var nextY = $(allImg[0]).offset().top;
+            
+            // Scroll window
             $('html,body').animate({scrollTop: nextY - imgMar}, 500);
+            
+            // Update url
+            document.location.hash = $(allImg[0]).parents('a').attr('href');
+            e.preventDefault();
+            return false;
         });
     
         // Show advance hint only when showing galleries
