@@ -26,7 +26,7 @@
 	// one gallery in the thumbnail view
 	$overviewRowTemplate   = "<a href=\"GALLERYURL\" title=\"GALLERYTITLE\"><img src=\"IMGSRC\" alt=\"ALTTXT\"></a>\n"; //
 	// one image in the gallery view
-	$galleryRowTemplate    = "<div class=\"galleryimage\"><img id=\"IMGID\" src=\"IMGSRC\" alt=\"ALTTXT\"></div>\n";
+	$galleryRowTemplate    = "<div class=\"galleryimage\"><a href=\"#IMGID\"><img id=\"IMGID\" src=\"IMGSRC\" alt=\"ALTTXT\"></a></div>\n";
 
 	// Thumbnail side length 
 	$thumbSize = 100;
