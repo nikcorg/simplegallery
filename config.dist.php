@@ -40,6 +40,7 @@
 	$baseDir         = str_replace("\\", "/", dirname(__FILE__));
 	$galleriesDir    = "/assets/galleries/";
 	$genImgDir       = "/assets/img/generated/";
+	$customCss       = ""; // Add filename without path to css file, e.g. "custom.css" NOT "/assets/css/custom.css". Place file into the /assets/css -folder.
 	
 	require_once 'lib/core.php';
 	require_once 'lib/gallery.php';

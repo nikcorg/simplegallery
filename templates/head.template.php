@@ -26,7 +26,11 @@
     <title><?php if (isset($galleryTitle) && ! empty($galleryTitle)): ?><?php echo $galleryTitle ?> | <?php endif; ?><?php echo is_array($siteTitle) ? $siteTitle[$siteDefaultLang] : $siteTitle ?></title>
     
     <link rel="alternate" title="<?php echo $siteTitle ?>" type="application/rss+xml" href="<?php echo $siteURL ?><?php echo $useNiceUrls ? "rss/" : "?rss=1" ?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo $siteWebRoot ?>/assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo $siteWebRoot ?>/assets/css/style.css" type="text/css" media="screen" charset="utf-8">
+    
+    <?php if (! empty($customCss)): ?>
+    <link rel="stylesheet" href="<?php echo $siteWebRoot ?>/assets/css/<?php echo $customCss ?>" type="text/css" media="screen" charset="utf-8">
+    <?php endif; ?>
     
     <script type="text/javascript">
 	var siteWebRoot = '<?php echo $siteWebRoot ?>';
