@@ -176,7 +176,7 @@ class SimpleGallery {
 					$row = $galleryRowTemplate;
 					$row = str_replace('IMGSRC', sprintf("%s/%s", $galleryPath, $image), $row);
 					$row = str_replace('ALTTXT', '', $row);
-					$row = str_replace('IMGID', getUrlSafeString($image), $row);
+					$row = str_replace('IMGID', getUrlSafeString(substr($image, 0, strrpos($image, "."))), $row);
 					
 					print($row);
 				}

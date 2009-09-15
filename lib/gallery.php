@@ -8,6 +8,8 @@ class Gallery {
 	        return new Gallery($path);
 	    }
 	    
+	    var_dump("Could not create gallery for path " . $path);
+	    
 	    return null;
 	}
 	
@@ -76,6 +78,8 @@ class Gallery {
 			list($ident, $data) = preg_split("/[\s]/", trim($row), 2);
 			
 			$data = trim($data);
+			
+			//var_dump(strtolower($ident));
 			
 			switch (strtolower($ident)) {
 				case 'title':
