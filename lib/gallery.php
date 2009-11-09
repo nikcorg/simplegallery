@@ -8,8 +8,6 @@ class Gallery {
 	        return new Gallery($path);
 	    }
 	    
-	    var_dump("Could not create gallery for path " . $path);
-	    
 	    return null;
 	}
 	
