@@ -194,7 +194,7 @@ class SimpleGallery {
             		}
 				}
 				
-				for ($j = $i + 1; $j < count($keys) - 1; $j++) {
+				for ($j = $i + 1; $j < count($keys); $j++) {
 				    $olderGallery     = $this->gallerydata[$keys[$j]];
 				    
 				    if (is_null($olderGallery->hidden)) {
