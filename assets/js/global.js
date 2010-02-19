@@ -5,14 +5,14 @@ $(document).ready(function() {
     });
     
     function addHintPopup() {
-        var t = setTimeout(hideHintPopup, 2000, t);
+        var t = setTimeout(hideHintPopup, 3500, t);
         
         $('<div id="hintwindow"><p>Click the image to advance to the next one.</p></div>')
             .css({
                 top: '-300px'
             })
             .appendTo('body')
-            .animate({top: "30%"}, 500)
+            .animate({top: "40%"}, 500)
             .click(function () {
                hideHintPopup(); 
             });
