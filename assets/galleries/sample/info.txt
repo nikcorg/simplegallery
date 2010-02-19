@@ -1,5 +1,5 @@
-TITLE	Sample gallery
-THUMB   sample03.jpg
-DESC    Description of this sample gallery
-DATE	March 04
-KEYW    Simplegallery, Sample
+TITLE Sample gallery
+THUMB sample03.jpg
+DESC Description of this sample gallery
+DATE March 04
+KEYW Simplegallery, Sample

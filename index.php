@@ -13,11 +13,11 @@ if (isRssRequest()) {
     require_once 'templates/rss.template.php';
 }
 else if (isIndexRequest()) {
-	SimpleGallery::getInstance()->renderOverview();
-	require_once 'templates/index.template.php';
+    SimpleGallery::getInstance()->renderOverview();
+    require_once 'templates/index.template.php';
 } else if (isGalleryRequest()) {
-	SimpleGallery::getInstance()->renderGallery();
-	require_once 'templates/gallery.template.php';
+    SimpleGallery::getInstance()->renderGallery();
+    require_once 'templates/gallery.template.php';
 } else {
     if ($skipLandingPage) {
         if ($useNiceUrls) {

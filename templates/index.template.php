@@ -12,7 +12,7 @@
 </div>
 
 <div id="overview" class="clearfix">
-	<?php echo SimpleGallery::getInstance()->getOutput(); ?>
+    <?php echo SimpleGallery::getInstance()->getOutput(); ?>
 </div>
 
 <?php require_once 'tail.template.php'; ?>

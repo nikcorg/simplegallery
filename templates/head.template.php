@@ -2,11 +2,11 @@
 <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">    
     <?php if (is_array($siteTitle)): ?>
-	    <?php foreach ($siteTitle as $lang => $title): ?>
-	    	<meta name="DC.Title" lang="<?php echo $lang ?>" content="<?php echo $title ?>">
-	    <?php endforeach; reset($siteTitle); ?>
+        <?php foreach ($siteTitle as $lang => $title): ?>
+            <meta name="DC.Title" lang="<?php echo $lang ?>" content="<?php echo $title ?>">
+        <?php endforeach; reset($siteTitle); ?>
     <?php else: ?>
-    	<meta name="DC.Title" lang="<?php echo $siteDefaultLang ?>" content="<?php echo $siteTitle ?>">
+        <meta name="DC.Title" lang="<?php echo $siteDefaultLang ?>" content="<?php echo $siteTitle ?>">
     <?php endif; ?>
     
     <meta name="DC.Creator" lang="<?php echo $siteDefaultLang ?>" content="<?php echo $siteOwner ?>">
@@ -33,7 +33,7 @@
     <?php endif; ?>
     
     <script type="text/javascript">
-	var siteWebRoot = '<?php echo $siteWebRoot ?>';
+    var siteWebRoot = '<?php echo $siteWebRoot ?>';
     </script>
     
     <script type="text/javascript" src="<?php echo $siteWebRoot ?>/assets/js/jquery-1.3.2.min.js"></script>

@@ -26,14 +26,14 @@ Now for the techical stuff, ask your techie friend if this is too hard
   you're fine, skip this step.
 - If you're not, you need to do some edits:
   - in config.php set 
-	$siteWebRoot = '/path/to/gallery';
+    $siteWebRoot = '/path/to/gallery';
     pointing to the folder you're installing to. No trailing slash.
   - in .htaccess change RewriteBase to the folder you're installing to
 
 - If you cannot use .htaccess and mod_rewrite (ask your service provider or
   your techie friend if you're stumped over this), set 
 
-	$useNiceUrls = false;
+    $useNiceUrls = false;
 
   in config.php
 
@@ -43,7 +43,7 @@ Now for the techical stuff, ask your techie friend if this is too hard
 
 - If you don't want to use a landing page (or splash page) set
 
-	$skipLandingPage = false;
+    $skipLandingPage = false;
 
   in config.php
 
@@ -105,7 +105,7 @@ CUSTOMIZING
 NOTE! Some of the javascript relies on a certain structure, if you change
 the markup, it might be worth taking a look in 
 
-	assets/js/global.js
+    assets/js/global.js
 
 There are helpful(?) comments in there.
 
