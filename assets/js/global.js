@@ -9,15 +9,7 @@ $(document).ready(function() {
         
         $('<div id="hintwindow"><p>Click the image to advance to the next one.</p></div>')
             .css({
-                border: "5px solid #fff",
-                padding: "10px",
-                background: "#333",
-                position: "fixed",
-                top: "-300px",
-                textAlign: "center",
-                marginLeft: "20%",
-                marginRight: "20%",
-                width: "60%",
+                top: '-300px'
             })
             .appendTo('body')
             .animate({top: "30%"}, 500)
