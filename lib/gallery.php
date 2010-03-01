@@ -42,6 +42,7 @@ class Gallery {
     var $files;
     var $thumbnail;
     var $hidden;
+    var $reverse;
     
     public function __construct($path = null) {
         if (! is_null($path)) {
@@ -109,6 +110,10 @@ class Gallery {
                 case 'hide':
                     $this->hidden = true;
                 break;
+                
+                case 'reverse':
+                    $this->reverse = true;
+                break;
             }
         }
     }
@@ -129,7 +134,9 @@ class Gallery {
             $this->files[] = basename($file);
         }
         
-        return $ret;
+        if ($this->reverse) {
+            $this->files = array_reverse($this->files);
+        }
     }
 }
 ?>

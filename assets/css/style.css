@@ -116,6 +116,7 @@ div#overview {
 div#overview a {
     display: inline;
     float: left;
+    height: 1%;
     margin-bottom: 20px;
     margin-left: 20px;    
     overflow: hidden;
@@ -123,6 +124,7 @@ div#overview a {
 
 div#overview a img {
     background-color: #000;
+    display: block;
     padding: 5px;
 }
 

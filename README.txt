@@ -81,6 +81,10 @@ USING
       no access protection what so ever. Exists solely for the purpose of
       having a public access gallery, to which there isn't a direct link to,
       as in "security by obscurity"
+  - REVERSE
+    - reverse the order of the images in the gallery. Useful when you update
+      a gallery from time to time and want the newest additions to appear on
+      top
 
 - There is a sample info.txt provided in the sample gallery
 - The gallery data is read only once per session, which might lead to you
