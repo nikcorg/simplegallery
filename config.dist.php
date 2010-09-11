@@ -1,57 +1,43 @@
 <?php  
-    // VCard details
-    $siteOwner           = "John Doe";
-    $siteOwnerTitle      = "Photographer";
-    $siteOwnerTel        = "555-1234";
-    $siteOwnerEmail      = "me@mydomain.com";
-    
-    // Site information
-    $siteDefaultLang     = "en";
-    $siteURL             = "http://www.mydomain.com/";
-    $siteTitle           = "My Awesome Photo Gallery";
-    $siteDescription     = "Lorem ipsum dolor sit amet";
-    $siteKeywords        = "Lorem, Ipsum, Dolor, Sit, Amet";
-    
-    // For titling in several languages (for indexing purposes only), use the below scheme
-    /*
-    $siteTitle = array(
-                'en'=>"Lorem Ipsum in English", 
-                'fi'=>"Lorem ipsum suomeksi", 
-                'sv'=>"Lorem ipsum på svenska"
-                );
-    */
-    
-    
-    // Thumbnail side length in pixels
-    $thumbSize = 100;
+// VCard details
+$siteOwner           = "John Doe";
+$siteOwnerTitle      = "Photographer";
+$siteOwnerTel        = "555-1234";
+$siteOwnerEmail      = "me@mydomain.com";
 
-    // Other settings
-    $useNiceUrls     = true;
-    $skipLandingPage = true;
-    $dateMask        = 'd.m.Y'; // see http://php.net/date
-    $backToIndexStr  = "Return to gallery index";
-    $siteWebRoot     = ''; // omit the trailing slash. for root folder, leave empty.
-    $baseDir         = str_replace("\\", "/", dirname(__FILE__));
-    $galleriesDir    = "/assets/galleries/";
-    $genImgDir       = "/assets/img/generated/";
-    $customCss       = ""; // Add filename without path to css file, e.g. "custom.css" NOT "/assets/css/custom.css". Place file into the /assets/css -folder.
-    
-    /* 
-    
-    Don't change anything below this line, unless you're sure about what you're doing.
-    
-    */
-    
-    // Output templates
-    // the title-attribute in the thumbnail view
-    $overviewTitleTemplate = "GALLERYTITLE, GALLERYNUMIMAGES images, updated on GALLERYUPDATED";     
-    // one gallery in the thumbnail view
-    $overviewRowTemplate   = "<a href=\"GALLERYURL\" title=\"GALLERYTITLE\"><img src=\"IMGSRC\" alt=\"ALTTXT\"></a>\n"; //
-    // one image in the gallery view
-    $galleryRowTemplate    = "<div class=\"galleryimage\"><a href=\"#IMGID\"><img id=\"IMGID\" src=\"IMGSRC\" alt=\"ALTTXT\"></a></div>\n";
-    
-    
-    require_once 'lib/core.php';
-    require_once 'lib/gallery.php';
-    require_once 'lib/helpers.php';
-?>
+// Site information
+$siteDefaultLang     = "en";
+$siteURL             = "http://www.mydomain.com/";
+$siteDescription     = "Lorem ipsum dolor sit amet";
+$siteKeywords        = "Lorem, Ipsum, Dolor, Sit, Amet";
+$siteTitle           = "My Awesome Photo Gallery";
+// For titling in several languages (for indexing purposes only), use the below scheme
+//$siteTitle           = array(
+            'en'=>"Lorem Ipsum in English", 
+            'fi'=>"Lorem ipsum suomeksi", 
+            'sv'=>"Lorem ipsum på svenska"
+            );
+
+// Row templates, leave untouched if unsure about what you're doing
+$overviewRowTemplate = "<a href=\"GALLERYURL\" title=\"GALLERYTITLE\"><img src=\"IMGSRC\" alt=\"ALTTXT\"></a>";
+$galleryRowTemplate  = "<div class=\"galleryimage\"><img src=\"IMGSRC\" alt=\"ALTTXT\"></div>";
+
+// Thumbnail settings 
+$thumbSize = 100;
+
+// Other settings
+$useNiceUrls    = true;
+$backToIndexStr = "Return to gallery index";
+$siteWebRoot    = ''; // omit the trailing slash. for root folder, leave empty.
+$baseDir        = str_replace("\\", "/", dirname(__FILE__));
+$galleriesDir   = "/assets/galleries/";
+$genImgDir      = "/assets/img/generated/";
+
+// Cache settings
+define('CACHEDIR', "{$baseDir}/assets/cache");
+define('CACHETTL', 1080000); // 5 hours
+
+// Includes
+require_once 'lib/core.php';
+require_once 'lib/gallery.php';
+require_once 'lib/helpers.php';
