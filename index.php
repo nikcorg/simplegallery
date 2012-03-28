@@ -1,5 +1,5 @@
-<?php  
-require_once 'config.php';
+<?php
+require_once dirname(__FILE__) . '/config.php';
 
 header("Content-Type: text/html; charset=utf-8", true);
 
@@ -11,10 +11,10 @@ session_start();
 if (isRssRequest()) {
     if (! (feedCacheExists() && serveCachedFeed())) {
         ob_start();
-        
+
         SimpleGallery::getInstance()->renderRss();
         require_once 'templates/rss.template.php';
-        
+
         if (cacheFeedContents(ob_get_clean())) {
             serveCachedFeed();
         }
@@ -27,7 +27,7 @@ else if (isIndexRequest()) {
     SimpleGallery::getInstance()->renderGallery();
     require_once 'templates/gallery.template.php';
 } else {
-    if ($skipLandingPage) {
+    if (isset($skipLandingPage) && $skipLandingPage) {
         if ($useNiceUrls) {
             forwardTo($siteWebRoot . '/index/');
         } else {
