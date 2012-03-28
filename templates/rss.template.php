@@ -9,7 +9,7 @@
     <title><?php echo $siteTitle ?></title>
     <link><?php echo $siteURL ?></link>
     <description><?php echo $siteDescription ?></description>
-    
+
     <?php echo SimpleGallery::getInstance()->getOutput() ?>
 </channel>
 </rss>

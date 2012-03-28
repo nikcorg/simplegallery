@@ -17,7 +17,7 @@ INSTALLING
 
 - Copy the files to your server.
 - Rename config.dist.php config.php.
-- Open config.php in a text editor and edit where you need to 
+- Open config.php in a text editor and edit where you need to
   (This step is not optional)
 
 Now for the techical stuff, ask your techie friend if this is too hard
@@ -25,20 +25,20 @@ Now for the techical stuff, ask your techie friend if this is too hard
 - If you're installing the gallery into the root folder of your website,
   you're fine, skip this step.
 - If you're not, you need to do some edits:
-  - in config.php set 
+  - in config.php set
     $siteWebRoot = '/path/to/gallery';
     pointing to the folder you're installing to. No trailing slash.
   - in .htaccess change RewriteBase to the folder you're installing to
 
 - If you cannot use .htaccess and mod_rewrite (ask your service provider or
-  your techie friend if you're stumped over this), set 
+  your techie friend if you're stumped over this), set
 
     $useNiceUrls = false;
 
   in config.php
 
 - Make sure that the /assets/img/generated is write enabled for the web server
-  process. If you're not sure, make it world writable, which is techie for 
+  process. If you're not sure, make it world writable, which is techie for
   check all the 'write' boxes in your ftp programs' properties dialog.
 
 - If you don't want to use a landing page (or splash page) set
@@ -50,8 +50,8 @@ Now for the techical stuff, ask your techie friend if this is too hard
 
 Now you should be up and running. If not, you're doing it wrong!
 
-Jokes aside, if you're still having trouble, AFTER asking your techie friend 
-AND your service provider AND trying to find help using Google, then you may 
+Jokes aside, if you're still having trouble, AFTER asking your techie friend
+AND your service provider AND trying to find help using Google, then you may
 contact me at nikc@iki.fi as long as you're polite.
 
 
@@ -99,7 +99,7 @@ CUSTOMIZING
 - You can also customize your gallery by editing the page templates.
   You find them in the templates folder.
 
-  - landing.template.php 
+  - landing.template.php
     - this is the landing page
   - index.template.php
     - this is the thumbnail view
@@ -107,7 +107,7 @@ CUSTOMIZING
     - this is the gallery view
 
 NOTE! Some of the javascript relies on a certain structure, if you change
-the markup, it might be worth taking a look in 
+the markup, it might be worth taking a look in
 
     assets/js/global.js
 
