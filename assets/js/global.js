@@ -61,11 +61,15 @@ $(document).ready(function() {
 
             // Scroll window
             if (nextY > nodeY) {
-                $('html,body').animate({scrollTop: nextY - imgMar}, 200);
+                $('html,body').animate(
+                    {scrollTop: nextY - imgMar},
+                    200,
+                    function () {// Update url
+                        document.location.hash = anchor;
+                    }
+                    );
             }
 
-            // Update url
-            document.location.hash = anchor;
             e.preventDefault();
             return false;
         };
