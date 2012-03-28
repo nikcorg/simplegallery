@@ -20,8 +20,8 @@ $siteTitle           = array(
             );
 */
 // Row templates, leave untouched if unsure about what you're doing
-$overviewRowTemplate = "<a href=\"GALLERYURL\" title=\"GALLERYTITLE\"><img src=\"IMGSRC\" alt=\"ALTTXT\"></a>";
-$galleryRowTemplate  = "<div class=\"galleryimage\"><img src=\"IMGSRC\" alt=\"ALTTXT\"></div>";
+$overviewRowTemplate = "<a href=\"GALLERYURL\" title=\"GALLERYTITLE\"><img id=\"IMGID\" src=\"IMGSRC\" alt=\"ALTTXT\"></a>";
+$galleryRowTemplate  = "<div class=\"galleryimage\"><img id=\"IMGID\" src=\"IMGSRC\" alt=\"ALTTXT\"></div>";
 
 // Thumbnail settings
 $thumbSize = 100;
