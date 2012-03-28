@@ -49,7 +49,7 @@ class Gallery {
             $this->setPath($path);
         }
 
-        self::$galleries[] &= $this;
+        self::$galleries[] = $this;
     }
 
     public function setPath($path) {
