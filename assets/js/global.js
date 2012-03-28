@@ -83,12 +83,18 @@ $(document).ready(function() {
         // Return to top from the last img
         $(allImg[allImg.length - 1]).click(function(e) {
             var nextY = $(allImg[0]).offset().top;
+            var anchor = $(allImg[0]).attr('id') || $(allImg[0]).parents('a').attr('href');
 
             // Scroll window
-            $('html,body').animate({scrollTop: nextY - imgMar}, 500);
+            $('html,body').animate(
+                    {scrollTop: nextY - imgMar},
+                    500,
+                    function () {
+                        // Update url
+                        document.location.hash = anchor;
+                    }
+                    );
 
-            // Update url
-            document.location.hash = $(allImg[0]).attr('id') || $(allImg[0]).parents('a').attr('href');
             e.preventDefault();
             return false;
         });
