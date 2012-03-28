@@ -45,33 +45,35 @@ $(document).ready(function() {
         }
 
         // Forward scroll
+        var advanceImage = function (e) {
+            var nodeY  = $(this).offset().top;
+            var nextY  = 0;
+            var anchor = "";
+
+            // Find next Y-coordinate
+            for (var j = 0; j < allImg.length; j++) {
+                if ($(allImg[j]).offset().top > nodeY) {
+                    nextY  = $(allImg[j]).offset().top;
+                    anchor = $(allImg[j]).attr('id') || $(allImg[j]).parents('a').attr('href');
+                    break;
+                }
+            }
+
+            // Scroll window
+            if (nextY > nodeY) {
+                $('html,body').animate({scrollTop: nextY - imgMar}, 200);
+            }
+
+            // Update url
+            document.location.hash = anchor;
+            e.preventDefault();
+            return false;
+        };
+
         for (var i = 0; i < allImg.length - 1; i++) {
             var node = allImg[i];
 
-            $(node).click(function(e) {
-                var nodeY  = $(this).offset().top;
-                var nextY  = 0;
-                var anchor = "";
-
-                // Find next Y-coordinate
-                for (var j = 0; j < allImg.length; j++) {
-                    if ($(allImg[j]).offset().top > nodeY) {
-                        nextY  = $(allImg[j]).offset().top;
-                        anchor = $(allImg[j]).parents('a').attr('href');
-                        break;
-                    }
-                }
-
-                // Scroll window
-                if (nextY > nodeY) {
-                    $('html,body').animate({scrollTop: nextY - imgMar}, 200);
-                }
-
-                // Update url
-                document.location.hash = anchor;
-                e.preventDefault();
-                return false;
-            });
+            $(node).click(advanceImage);
         }
 
         // Return to top from the last img
@@ -82,13 +84,13 @@ $(document).ready(function() {
             $('html,body').animate({scrollTop: nextY - imgMar}, 500);
 
             // Update url
-            document.location.hash = $(allImg[0]).parents('a').attr('href');
+            document.location.hash = $(allImg[0]).attr('id') || $(allImg[0]).parents('a').attr('href');
             e.preventDefault();
             return false;
         });
 
         // Show advance hint only when showing galleries
-        if ($('div#gallery').length != 0) {
+        if ($('div#gallery').length !== 0) {
             addHintPopup();
         }
     }
